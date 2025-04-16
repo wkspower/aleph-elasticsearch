@@ -32,4 +32,4 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/alephdata/aleph-elasticsearch:${{ github.sha }}
+          tags: ghcr.io/wkspower/aleph-elasticsearch:${{ github.sha }}
