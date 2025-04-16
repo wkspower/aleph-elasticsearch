@@ -1,5 +1,5 @@
 FROM elasticsearch:7.16.3
-LABEL org.opencontainers.image.source = "https://github.com/alephdata/aleph-elasticsearch"
+LABEL org.opencontainers.image.source = "https://github.com/wkspower/aleph-elasticsearch"
 
 RUN bin/elasticsearch-plugin install --batch repository-s3 \
     && bin/elasticsearch-plugin install --batch repository-gcs \
