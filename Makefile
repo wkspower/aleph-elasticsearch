@@ -1,15 +1,15 @@
-TAG=latest
+TAG=v1.0.0
 
 all: push
 
 build:
-	docker build -t wkspower/aleph-elasticsearch:$(TAG) .
+	docker build -t ghcr.io/wkspower/aleph-elasticsearch:$(TAG) .
 
 run: build
-	docker run -ti wkspower/aleph-elasticsearch:$(TAG) bash
+	docker run -ti -e ES_JAVA_OPTS="-Xms720m -Xmx720m" ghcr.io/wkspower/aleph-elasticsearch:$(TAG) bash
 
 exec: build
-	docker run -ti -v $(PWD)/secrets:/secrets wkspower/aleph-elasticsearch:$(TAG)
+	docker run -ti -e ES_JAVA_OPTS="-Xms720m -Xmx720m" -v $(PWD)/secrets:/secrets ghcr.io/wkspower/aleph-elasticsearch:$(TAG)
 
 push: build
-	docker push wkspower/aleph-elasticsearch:$(TAG)
+	docker push ghcr.io/wkspower/aleph-elasticsearch:$(TAG)

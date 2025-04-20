@@ -8,4 +8,6 @@ RUN bin/elasticsearch-plugin install --batch repository-s3 \
 COPY k8s-entrypoint.sh /k8s-entrypoint.sh
 COPY --chown=elasticsearch synonames.txt /usr/share/elasticsearch/config/
 
+RUN echo "discovery.type: single-node" >> /usr/share/elasticsearch/config/elasticsearch.yml
+
 ENTRYPOINT [ "/k8s-entrypoint.sh" ]
